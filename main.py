@@ -3,7 +3,7 @@
 #CS 30
 #june 2nd, 2023
 #Rayan Siddiqui
-#Version 002
+#Version 003
 ##############################################################################
 '''This assigment is a code that constructs a map in which allows the 
 character to move into a different room in the map
@@ -38,6 +38,8 @@ objects = {"pencil": {"description":"nice you found pencil.", "location": "home 
 # Functions ------------------------------------------------------------------
 # define a function to describe the setting of the block
 def describe_setting(setting):
+  '''this function loops the room dicitonary to print description of our
+      room. settings is the current room location.'''
   for room in rooms: 
     if room == setting:
       print(rooms[room]["description"])
@@ -83,24 +85,33 @@ def movement():
 
 
 def view_inventory():
+  '''this function displays your inventory and the items inside of it.'''
   print("the following items are in your inventory")
   for item in Inventory:
     print(item)
 
 
 def search(room):
+  '''this is the search function which runs a while loop to help the user
+  find objects. going to use room which is the users current room and 
+  compare it to the object dictionary to find objects whose locations
+  match. '''
   print("you decide to look around the room.")
-  for item in objects: 
-    if objects[item]["location"] == room:
-      print(f"wow you found an {item}.")
-      answer = input(f"would u like to keep the {item}?(yes, no) ")
-      if answer == "yes":
-        Inventory.append(item)
-        print(f"{item} has been added to inventory")
-      elif answer == "no":
-        print(f"you leave the {item}")
-      else: 
-        print("invalid")
+  searching = True
+  while searching:
+    for item in objects: 
+      if objects[item]["location"] == room:
+        print(f"wow you found an {item}.")
+        answer = input(f"would u like to keep the {item}?(yes, no) ")
+        if answer == "yes":
+          Inventory.append(item)
+          print(f"{item} has been added to inventory")
+          searching = False
+        elif answer == "no":
+          print(f"you leave the {item}")
+          searching = False
+        else: 
+          print("invalid")
 
 
 # Main -----------------------------------------------------------------------
@@ -110,7 +121,8 @@ while True:
     describe_setting(setting)
 
     # ask user where to move next
-    mainMenu = input("what do you want to do? (walk, view inventory, search) ")
+    mainMenu = input("what do you want to do? (walk, view inventory, "
+                     + "search) ")
 
     # update the characters position off input
     if mainMenu == "walk":
