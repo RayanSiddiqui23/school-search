@@ -3,7 +3,7 @@
 #CS 30
 #june 2nd, 2023
 #Rayan Siddiqui
-#Version 003
+#Version 004
 ##############################################################################
 '''This assigment is a code that constructs a map in which allows the 
 character to move into a different room in the map
