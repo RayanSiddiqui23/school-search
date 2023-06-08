@@ -1,0 +1,4 @@
+[['home room' 'janitor closet' 'locker room' 'washroom' 'cafeteria']
+ ['cafeteria' 'home room' 'janitor closet' 'locker room' 'washroom']
+ ['washroom' 'cafeteria' 'home room' 'janitor closet' 'locker room']
+ ['locker room' 'washroom' 'cafeteria' 'homeroom' 'janitor closet']]
